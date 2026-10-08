@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Farmer profile details linked to authenticated user",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "phoneNumber": { "type": "string", "description": "Masked or verified phone number" },
+        "name": { "type": "string", "description": "Farmer name" },
+        "village": { "type": "string", "description": "Village or town" },
+        "state": { "type": "string", "description": "State" },
+        "district": { "type": "string", "description": "District" },
+        "preferredCrop": { "type": "string", "description": "Main crop" },
+        "landSize": { "type": "string", "description": "Land size" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "phoneNumber"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile document owned by the farmer"
+    }
+  }
+}
